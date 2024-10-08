@@ -9,8 +9,10 @@ import Image from 'next/image'
         <h3 className='pl-2 font-bold text-2xl text-[#e6e9ee] min-w-max'>
             D-brain
         </h3>
-        
         </div>
+        <nav>
+            
+        </nav>
     </aside>
   )
 }
