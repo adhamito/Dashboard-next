@@ -31,11 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <div className="flex min-h-screen">
         <SideBar ></SideBar>
         <Header></Header>
         <PageWrapper>
         {children}
         </PageWrapper>
+        </div>
         
       </body>
     </html>
