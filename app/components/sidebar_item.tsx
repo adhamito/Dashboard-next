@@ -7,9 +7,10 @@ import { BsChevronDown } from 'react-icons/bs';
 
 interface SidebarItemProps {
     item: SideNavItem; 
+    Toggle: boolean; 
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ item }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ item, Toggle }) => {
     const [isOpen, setIsOpen] = useState(false);
     
     const handleToggle = () => {
@@ -25,7 +26,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item }) => {
                 <div className="flex flex-row items-center justify-between w-full">
                     <div className="flex items-center min-h-[40px] h-full text-[#6e768e] py-2 px-4 hover:text-white">
                         {item.icon}
-                        <Link href={item.path} className="pl-3">{item.title}</Link>
+                        {Toggle && <Link href={item.path} className="pl-3">{item.title}</Link>} {/* Show title only when Toggle is true */}
                     </div>
                     {item.subMenu && (
                         <BsChevronDown className={`ml-auto stroke-2 text-xs transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -33,17 +34,13 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item }) => {
                 </div>
             </div>
             
-            {isOpen && item.subMenu && (
+            {isOpen && item.subMenuItems && (
                 <div className='bg-[#3a3f48]'>
                     <div className='grid gap-y-2 px-10 py-3 leading-5'>
-                        {item.subMenuItems?.map((subItem, index) => (
-                            <Link 
-                                href={subItem.path} 
-                                key={index} 
-                                className='flex items-center min-h-[40px] h-full text-[#6e768e] py-2 px-4 hover:text-white'
-                            >
+                        {item.subMenuItems.map((subItem, index) => (
+                            <Link href={subItem.path} key={index} className='flex items-center min-h-[40px] h-full text-[#6e768e] py-2 px-4 hover:text-white'>
                                 {subItem.icon}
-                                <span className="pl-3">{subItem.title}</span>
+                                {Toggle && <span className="pl-3">{subItem.title}</span>} 
                             </Link>
                         ))}
                     </div>
