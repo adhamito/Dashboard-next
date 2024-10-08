@@ -6,7 +6,7 @@ interface HeaderProps {
     setToggle: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ Toggle, setToggle }) => {
+const Header: React.FC<HeaderProps> = ({ setToggle }) => {
     const handleToggle = () => {
         setToggle(prev => !prev); 
     };
