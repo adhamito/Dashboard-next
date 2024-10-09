@@ -2,7 +2,7 @@
 import "./globals.css";
 import Header from "./header";
 import SideBar from "./components/SideBar/index";
-import PageWrapper from "./components/pagewrapper";
+import PageWrapper from "./components/PageWrapper";
 import React, { useState } from "react";
 import { ThemeProvider } from "./theme-provider";
 

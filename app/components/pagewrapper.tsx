@@ -1,16 +1,13 @@
-import React, { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
-const PageWrapper = ({ children, Toggle }: { children: ReactNode; Toggle: boolean }) => {
+type PageWrapperProps = {
+  children: ReactNode,
+    Toggle: boolean;
+}
+const PageWrapper: FC<PageWrapperProps> = ({ children }) => {
   return (
-    <div
-      className={`flex-grow p-2  transition-all duration-300 
-        ${Toggle ? 'pl-[20rem]' : 'pl-[5.6rem]'}
-         text-black dark:bg-slate-900 dark:text-white
-      `}
-    >
-      {children}
-    </div>
-  );
-};
+    <div className='bg-slate-50 flex-grow text-black p-2 mt-16 pl-[20.4rem]'>pagewrapper {children}</div>
+  )
+}
 
 export default PageWrapper;
