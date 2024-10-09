@@ -1,11 +1,11 @@
 'use client';
-
-
 import "./globals.css";
-import Header from "./components/header";
+import Header from "./header";
 import SideBar from "./components/SideBar/index";
 import PageWrapper from "./components/pagewrapper";
 import React, { useState } from "react";
+import { ThemeProvider } from "./theme-provider";
+
 
 export default function RootLayout({
     children,
@@ -16,6 +16,11 @@ export default function RootLayout({
 
     return (
         <html lang="en">
+          <ThemeProvider
+           attribute="class"
+           defaultTheme="system"
+           enableSystem
+           disableTransitionOnChange>
             <body>
                 <div className="flex min-h-screen">
                     <SideBar Toggle={Toggle} /> 
@@ -27,6 +32,7 @@ export default function RootLayout({
                     </div>
                 </div>
             </body>
+            </ThemeProvider>
         </html>
     );
 }
